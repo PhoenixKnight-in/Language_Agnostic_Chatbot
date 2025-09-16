@@ -40,7 +40,7 @@ async def lifespan(app: FastAPI):
         logger.info("NLP service initialized successfully")
         
         # Seed sample data (uncomment for first run)
-        # await data_seeder.seed_sample_faqs()
+        await DataSeeder.seed_sample_faqs()
         
         # Load FAQs and create embeddings
         faqs = await db.get_all_faqs()
@@ -74,7 +74,10 @@ app = FastAPI(
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Configure appropriately for production
+    allow_origins=[
+        "http://localhost:5173",  # React Vite dev server
+        "http://127.0.0.1:5173",  # Also needed sometimes
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

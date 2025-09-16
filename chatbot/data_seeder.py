@@ -137,3 +137,6 @@ class DataSeeder:
                 }
             }
         ]
+        for item in sample_faqs:
+            faq = FAQ(**item)
+            await db.insert_faq(faq)
