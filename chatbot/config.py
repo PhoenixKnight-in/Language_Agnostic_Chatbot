@@ -53,7 +53,7 @@ class Settings(BaseSettings):
     # Campus Specific
     COLLEGE_NAME: str = "Campus University"
     ADMIN_EMAIL: str = "admin@campus.edu"
-    SUPPORT_CONTACT: str = "+91-XXXXXXXXXX"
+    SUPPORT_CONTACT: str = "+91-8925154951"
     
     class Config:
         env_file = ".env"
